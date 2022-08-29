@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="title" type="String" />
+    </data>
+
+    <TextView
+        android:id="@+id/epoxyTitle"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="@{title}"
+        android:gravity="center"/>
+</layout>
