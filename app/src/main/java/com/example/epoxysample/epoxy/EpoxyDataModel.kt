@@ -7,7 +7,7 @@ import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.example.epoxysample.R
-
+/*
 @EpoxyModelClass(layout = R.layout.epoxy_data_view)
 abstract class EpoxyDataModel : EpoxyModelWithHolder<EpoxyDataModel.TitleHolder>() {
 
@@ -24,4 +24,4 @@ abstract class EpoxyDataModel : EpoxyModelWithHolder<EpoxyDataModel.TitleHolder>
             textView = itemView.findViewById(R.id.epoxyTitle)
         }
     }
-}
+}*/
