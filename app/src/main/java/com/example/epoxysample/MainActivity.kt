@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.epoxy.carousel
 import com.example.epoxysample.databinding.ActivityMainBinding
 import com.example.epoxysample.model.Title
 
@@ -56,6 +57,25 @@ class MainActivity : AppCompatActivity() {
                         title("V : $it")
                     }
                 }
+
+                val dummyModel = dummyData.map {
+                    ChildViewBindingModel_()
+                        .id("dummy")
+                        .subItem("carousel V $it")
+                }
+                carousel {
+                    numViewsToShowOnScreen(4f)
+                    id("carousel")
+                    models(dummyModel)
+                }
+
+                dummyData.forEach {
+                    dataView {
+                        // ERROR : Use the @AutoModel annotation if you want an id to be automatically generated for you.
+                        id("addId")
+                        title("V22 : $it")
+                    }
+                }
             }
         }
 
@@ -78,12 +98,27 @@ class MainActivity : AppCompatActivity() {
                         title("H : $it")
                     }
                 }
+
+                val dummyModel = dummyData.map {
+                    // Epoxy에서 xml에 따라 Model을 만드는 규착.
+                    ChildViewBindingModel_()
+                        .id("dummy")
+                        .subItem("carousel H $it")
+                }
+
+                // carousel 는 무조건 가로 방향으로 배치된다.
+                // 세로일 때 가로, 가로일 때 세로 형식으로 변환되는 것이 아님.
+                carousel {
+                    id("carousel")
+                    models(dummyModel)
+                }
             }
         }
 
         val gridLayoutManager = GridLayoutManager(this, 2)
         binding.epoxyRecyclerView3.apply {
-            //        gridLayoutManager.orientation = GridLayoutManager.HORIZONTAL
+            // default Vertical
+//            gridLayoutManager.orientation = GridLayoutManager.HORIZONTAL
 
             // spanSizeLookup 적용이 제대로 안됨. model 내부에서 spanSizeOverride를 통해 작업 수행해야 함.
             /*gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -106,7 +141,6 @@ class MainActivity : AppCompatActivity() {
             var index = 0
             withModels {
                 dummyData.forEach {
-
                     if (index == 0) {
                         childView {
                             spanSizeOverride { _, _, _ -> 2 }

@@ -5,11 +5,8 @@ import com.airbnb.epoxy.EpoxyController
 import com.example.epoxysample.dataView
 import com.example.epoxysample.model.Title
 
-// 주석 처리된 부분은 직접 데이터를 입력하는 경우 사용.
 /*
-class EpoxyController : EpoxyController()*/
-/*TypedEpoxyController<ArrayList<Title>>()*//*
- {
+class EpoxyController : EpoxyController()*//*TypedEpoxyController<ArrayList<Title>>()*//* {
     private val insertData = ArrayList<Title>()
 
     init {
@@ -25,29 +22,25 @@ class EpoxyController : EpoxyController()*/
         var index = 0
         insertData.forEach {
             Log.d("dataCheck", "forEach[$index] ? ${insertData[index].title}")
-            dataView {
-                // ERROR : Use the @AutoModel annotation if you want an id to be automatically generated for you.
-                id(index)
-                title("it : $it")
-            }
+            EpoxyDataModel_()
+                .id(index) // ERROR : Use the @AutoModel annotation if you want an id to be automatically generated for you.
+                .title("it : $it")
+                .addTo(this)
             index++
         }
     }
 
-    */
-/*override fun buildModels(data: ArrayList<Title>?) {
-        Log.d("dataCheck" , "data ? $data")
+    *//*override fun buildModels(data: ArrayList<Title>?) {
+        Log.d("dataCheck", "data ? $data")
         var index = 0
         data?.forEach {
-            Log.d("dataCheck" , "forEach[$index] ? ${data[index].title}")
-            dataView {
-                // ERROR : Use the @AutoModel annotation if you want an id to be automatically generated for you.
-                id(index)
-                title("it : $it")
-            }
+            Log.d("dataCheck", "forEach[$index] ? ${data[index].title}")
+            EpoxyDataModel_()
+                .id(index)
+                .title("it : $it")
+                .addTo(this)
             index++
         }
     }*//*
-
 }
 */
