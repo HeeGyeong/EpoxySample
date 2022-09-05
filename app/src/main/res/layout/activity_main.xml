@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:id="@+id/normalBtn"
+        android:text="Normal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/epoxyRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/epoxy_data_view" />
+    <Button
+        android:id="@+id/epoxyBtn"
+        android:text="Epoxy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        app:layout_constraintTop_toBottomOf="@id/normalBtn"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/epoxyRecyclerView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/epoxyRecyclerView"
-            tools:listitem="@layout/epoxy_data_view" />
-
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/epoxyRecyclerView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/epoxyRecyclerView2"
-            tools:listitem="@layout/epoxy_data_view" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    <Button
+        android:id="@+id/composeBtn"
+        android:text="Compose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnClick"
+        app:layout_constraintTop_toBottomOf="@id/epoxyBtn"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
