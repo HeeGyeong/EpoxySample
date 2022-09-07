@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.epoxysample.epoxy.EpoxyActivity
+import com.example.epoxysample.normal.NormalActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     fun btnClick(view: View) {
         when (view.id) {
             R.id.normalBtn -> {
-                Toast.makeText(this, "normal Button", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, NormalActivity::class.java))
             }
             R.id.epoxyBtn -> {
                 startActivity(Intent(this, EpoxyActivity::class.java))

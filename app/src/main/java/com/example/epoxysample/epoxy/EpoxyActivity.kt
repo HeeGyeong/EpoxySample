@@ -36,7 +36,8 @@ class EpoxyActivity : AppCompatActivity() {
 
     private fun setItem() {
         val linearlayoutManager = LinearLayoutManager(this)
-//        linearlayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+//        linearlayoutManager.orientation = LinearLayoutManager.VERTICAL
+//            linearlayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
         val sampleLayoutManager = LinearLayoutManager(this)
         sampleLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
