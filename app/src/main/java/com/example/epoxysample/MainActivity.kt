@@ -3,8 +3,9 @@ package com.example.epoxysample
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
+import com.example.epoxysample.compose.ComposeActivity
 import com.example.epoxysample.epoxy.EpoxyActivity
 import com.example.epoxysample.normal.NormalActivity
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    @OptIn(ExperimentalAnimationApi::class)
     fun btnClick(view: View) {
         when (view.id) {
             R.id.normalBtn -> {
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, EpoxyActivity::class.java))
             }
             R.id.composeBtn -> {
-                Toast.makeText(this, "compose Button", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, ComposeActivity::class.java))
             }
         }
     }
