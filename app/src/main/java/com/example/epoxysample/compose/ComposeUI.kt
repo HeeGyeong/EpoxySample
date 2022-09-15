@@ -1,5 +1,6 @@
 package com.example.epoxysample.compose
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
@@ -9,23 +10,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.epoxysample.model.Title
 
-
 @Composable
 fun ComposeRecyclerView() {
     val scaffoldState = rememberScaffoldState()
 
     val dummyData = ArrayList<Title>()
-    dummyData.add(Title("1"))
+    for (index in 0..20) {
+        dummyData.add(Title("$index"))
+    }
+
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            TopBar2("EpoxySample")
+            TopBar("EpoxySample")
         },
         content = {
             Column(
                 Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                GridItemList(dummyData)
                 ItemList(dummyData)
             }
         }
@@ -42,39 +46,46 @@ fun ItemList(itemList: List<Title>) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         itemsIndexed(itemList) { index, item ->
-            if (index == 3) {
-                ItemList2(itemList)
-            } else {
-                CardView2(item)
+            when (index) {
+                3, 6 -> {
+                    RowItemList(itemList)
+                }
+                else -> {
+                    ItemView(item)
+                }
             }
         }
+    }
+}
 
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun GridItemList(itemList: List<Title>) {
+    LazyVerticalGrid(cells = GridCells.Fixed(3)) {
         items(itemList) { item ->
-            item.title
+            Text(
+                text = item.title,
+            )
         }
     }
 }
 
 @Composable
-fun ItemList2(itemList: List<Title>) {
+fun RowItemList(itemList: List<Title>) {
     val scrollState = rememberLazyListState()
 
     LazyRow(
         state = scrollState,
         modifier = Modifier.padding(bottom = 10.dp),
     ) {
-        itemsIndexed(itemList) { _, item ->
-            CardView2(item)
-        }
-
         items(itemList) { item ->
-            item.title
+            ItemView(item)
         }
     }
 }
 
 @Composable
-fun CardView2(msg: Title) {
+fun ItemView(msg: Title) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
         Column(
             modifier = Modifier
@@ -89,7 +100,7 @@ fun CardView2(msg: Title) {
 }
 
 @Composable
-fun TopBar2(
+fun TopBar(
     title: String,
 ) {
     TopAppBar(

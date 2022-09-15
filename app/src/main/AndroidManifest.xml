@@ -22,6 +22,7 @@
 
         <activity android:name=".epoxy.EpoxyActivity" />
         <activity android:name=".normal.NormalActivity" />
+        <activity android:name=".compose.ComposeActivity" />
     </application>
 
 </manifest>
