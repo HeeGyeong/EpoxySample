@@ -9,7 +9,7 @@ DataBinding을 사용하지 않았을 경우에 사용하는 DataModel, Controll
 * 각 방법마다 사용하는 방식과, 구현되는 코드의 양 등을 비교해보기 위하여 작성하였습니다. 
 
 ## RecyclerView vs Epoxy vs Compose
-일반적인 RecyclerView와 Adapter, ViewHolder를 사용하여 구현하는 방식과, Epoxy를 사용하는 방식, Compose를 사용하는 방식으로 나누어 비슷한 형태의 기본 UI를 그렸습니다.RecyclerView
+일반적인 RecyclerView와 Adapter, ViewHolder를 사용하여 구현하는 방식과, Epoxy를 사용하는 방식, Compose를 사용하는 방식으로 나누어 비슷한 형태의 기본 UI를 그렸습니다.
 
 세로 스크롤, 가로 스크롤에 대한 기본적인 구현과, Compose와 Epoxy에서는 GridLayout에 관련된 코드까지 추가하였습니다.
 
