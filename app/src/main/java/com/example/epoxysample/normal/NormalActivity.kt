@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.epoxysample.R
+import com.example.epoxysample.createTitle
 import com.example.epoxysample.databinding.ActivityNormalBinding
-import com.example.epoxysample.model.Title
 
 class NormalActivity : AppCompatActivity() {
 
@@ -30,11 +30,6 @@ class NormalActivity : AppCompatActivity() {
     }
 
     private fun setItem() {
-        val dummyData = ArrayList<Title>()
-        for (index in 0 until 10) {
-            dummyData.add(Title("$index"))
-        }
-
-        normalAdapter!!.setItemList(dummyData)
+        normalAdapter!!.setItemList(createTitle(10))
     }
 }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.epoxy.carousel
 import com.example.epoxysample.*
 import com.example.epoxysample.databinding.ActivityEpoxyBinding
-import com.example.epoxysample.model.Title
 
 class EpoxyActivity : AppCompatActivity() {
 
@@ -21,18 +20,10 @@ class EpoxyActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_epoxy)
         binding.lifecycleOwner = this
 
-        init()
         setItem()
     }
 
-    private val dummyData = ArrayList<Title>()
-    private fun init() {
-        dummyData.add(Title("11"))
-        dummyData.add(Title("22"))
-        dummyData.add(Title("33"))
-        dummyData.add(Title("44"))
-        dummyData.add(Title("55"))
-    }
+    private val dummyData = createTitle(5)
 
     private fun setItem() {
         val linearlayoutManager = LinearLayoutManager(this)

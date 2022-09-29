@@ -8,16 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.epoxysample.MainActivity
+import com.example.epoxysample.createTitle
 import com.example.epoxysample.model.Title
 
 @Composable
 fun ComposeRecyclerView() {
     val scaffoldState = rememberScaffoldState()
 
-    val dummyData = ArrayList<Title>()
-    for (index in 0..20) {
-        dummyData.add(Title("$index"))
-    }
+    val dummyData = createTitle(20)
 
     Scaffold(
         scaffoldState = scaffoldState,
